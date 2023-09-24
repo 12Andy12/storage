@@ -121,7 +121,9 @@ class App(QMainWindow):
             searchId.add(id)
 
         if request == "":
-            ex = cur.execute("SELECT id FROM ItemControl")
+            self.openFolder("root")
+            self.path = ["root"]
+            return
         else:
             ex = cur.execute("SELECT id FROM TagsControl WHERE tags = ?", (request,))
 

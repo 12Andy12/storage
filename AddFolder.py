@@ -29,6 +29,7 @@ class AddFolderWindow(QMainWindow):
         cur.execute("INSERT INTO FolderControl VALUES(?, ?);",
                     (self.newFolderName.text(), self.mainWindow.currentFolder, ))
         connection.commit()
+        self.mainWindow.path.pop()
         self.mainWindow.openFolder(self.mainWindow.currentFolder)
         self.mainWindow.setGeometry(self.geometry())
         self.mainWindow.show()
